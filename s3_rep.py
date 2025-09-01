@@ -2,11 +2,12 @@ import boto3
 import json
 from datetime import datetime, timezone
 from botocore.exceptions import ClientError
+import os
 
 # --- CONFIGURATION ---
 # TODO: Replace with your actual bucket names
-PRIMARY_BUCKET = "my-primary-bucket"
-SECONDARY_BUCKET = "my-secondary-bucket"
+PRIMARY_BUCKET = os.getenv('PRIMARY_BUCKET')
+SECONDARY_BUCKET = os.getenv('SECONDARY_BUCKET')
 
 # --- STATE MANAGEMENT KEYS ---
 # The main state file that tracks the last known good state of both buckets.
